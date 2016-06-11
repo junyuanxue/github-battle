@@ -3,7 +3,7 @@ var ReactDom = require('react-dom');
 
 var USER_DATA = {
   name: 'Junyuan Xue',
-  username: 'junyuanx',
+  username: 'junyuanxue',
   image: 'https://avatars1.githubusercontent.com/u/16904324?v=3&s=460'
 };
 
@@ -13,13 +13,28 @@ var ProfilePic = React.createClass({
   }
 });
 
+var Link = React.createClass({
+  changeURL: function () {
+    window.location.replace(this.props.href)
+  },
+  render: function () {
+    return (
+      <span
+        style={{color: 'red', cursor: 'pointer'}}
+        onClick={this.changeURL}>
+        {this.props.children}
+      </span>
+    )
+  }
+});
+
 var ProfileLink = React.createClass({
   render: function () {
     return (
       <div>
-        <a href={'http://www.github.com/' + this.props.username} >
+        <Link href={'http://www.github.com/' + this.props.username} >
           {this.props.username}
-        </a>
+        </Link>
       </div>
     )
   }
