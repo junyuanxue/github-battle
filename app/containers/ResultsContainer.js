@@ -9,8 +9,7 @@ var ResultsContainer = React.createClass({
     }
   },
   componentDidMount: function () {
-    var players = this.props.location.state.playersInfo;
-    githubHelpers.battle(players)
+    githubHelpers.battle(this.props.location.state.playersInfo)
       .then(function (scores) {
         this.setState({
           scores: scores,
@@ -22,7 +21,8 @@ var ResultsContainer = React.createClass({
     return (
       <Results
         isLoading={this.state.isLoading}
-        scores={this.state.scores} />
+        scores={this.state.scores}
+        playersInfo={this.props.location.state.playersInfo} />
     )
   }
 });
