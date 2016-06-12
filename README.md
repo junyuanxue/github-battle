@@ -1,7 +1,7 @@
 ![Imgur](http://i.imgur.com/qfscWHS.png)
 
 ## About Github Battle :guardsman:
-This a web app built with React that fetches Github user profiles from Github API, calculates scores and announces a winner.
+This is a web app built with React that fetches Github user profiles from Github API, calculates scores and announces a winner.
 
 ![Imgur](http://i.imgur.com/Z9fwr0P.png)
 
