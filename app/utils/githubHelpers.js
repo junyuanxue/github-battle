@@ -19,6 +19,7 @@ function getPlayersData (player) {
     .then(getTotalStars)
     .then(function (totalStars) {
       return {
+        repos: player.public_repos,
         followers: player.followers,
         totalStars: totalStars
       }
@@ -27,7 +28,7 @@ function getPlayersData (player) {
 
 function calculateScores (players) {
   return players.map(function (player) {
-    return player.followers * 3 + player.totalStars;
+    return player.repos + player.followers + player.totalStars;
   });
 }
 
@@ -46,7 +47,7 @@ var helpers = {
   battle: function (players) {
     var playerOneData = getPlayersData(players[0]);
     var playerTwoData = getPlayersData(players[1]);
-    
+
     return axios.all([playerOneData, playerTwoData])
       .then(calculateScores)
       .catch(function (error) {
