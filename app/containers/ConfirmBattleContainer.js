@@ -14,13 +14,28 @@ var ConfirmBattleContainer = React.createClass({
   },
   componentDidMount: function () {
     var query = this.props.location.query;
-    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo]);
+    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then(function (players) {
+        this.setState({
+          isLoading: false,
+          playersInfo: players
+        });
+      }.bind(this));
+  },
+  handleInitiateBattle: function () {
+    this.context.router.push({
+      pathname: '/results',
+      state: {
+        playersInfo: this.state.playersInfo
+      }
+    })
   },
   render: function () {
     return (
       <ConfirmBattle
         isLoading={this.state.isLoading}
-        playersInfo={this.state.playersInfo}/>
+        playersInfo={this.state.playersInfo}
+        onInitiateBattle={this.handleInitiateBattle} />
     )
   }
 });
