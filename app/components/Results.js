@@ -6,6 +6,7 @@ var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
 var MainContainer = require('./MainContainer');
+var Loading = require('./Loading');
 
 function StartOver() {
   return (
@@ -20,9 +21,7 @@ function StartOver() {
 function Results (props) {
   if (props.isLoading === true) {
     return (
-      <MainContainer>
-          <h1> Loading... </h1>
-      </MainContainer>
+      <Loading speed={200} text='Calculating scores' />
     )
   }
   if (props.scores[0] === props.scores[1]) {
