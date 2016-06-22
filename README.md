@@ -8,7 +8,6 @@ This is a web app built with React that fetches Github user profiles from Github
 Thank you Lorenzo for being my guinea pig.
 
 ## To play Github Battle :arrow_forward:
-
 Clone this repo and install dependencies:
 ```
 $ git clone https://github.com/junyuanxue/github-battle.git
